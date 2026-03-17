@@ -1,0 +1,285 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+html {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: white;
+  background: #141416;
+}
+
+.p1 {
+  padding: 1rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+a {
+  cursor: pointer;
+}
+
+.characterList {
+  --outline-color: hsl(0deg 0% 90%);
+  --icon-bg: hsl(240deg 11% 15%);
+  --name-bg: hsl(345deg 79% 32%);
+  --Brank-color: hsl(206deg 93% 35%);
+  --Arank-color: hsl(292deg 57% 39%);
+  --Srank-color: hsl(21deg 81% 38%);
+
+  --Brank-color: hsl(218, 50%, 28%);
+  --Arank-color: hsl(315, 49%, 27%);
+  --Srank-color: hsl(18, 67%, 33%);
+
+  --Brank-color: hsl(218, 33%, 21%);
+  --Arank-color: hsl(315, 42%, 22%);
+  --Srank-color: hsl(18, 43%, 29%);
+
+  --Brank-color-l: hsl(218, 33%, 70%);
+  --Arank-color-l: hsl(315, 42%, 70%);
+  --Srank-color-l: hsl(18, 43%, 70%);
+
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 1rem 0.625rem;
+}
+
+.character {
+  max-width: 74px;
+  display: grid;
+  place-content: center;
+  gap: 0.3125rem;
+  position: relative;
+}
+
+.character .characterIcon {
+  display: block;
+  background: var(--icon-bg);
+  transition: background-color 200ms ease;
+}
+
+.character .characterRank {
+  --rankIcon-width: 30px;
+  max-width: var(--rankIcon-width);
+  position: absolute;
+  top: calc((var(--rankIcon-width) / 1.3445) / -2);
+  left: calc(var(--rankIcon-width) / -2);
+  filter: brightness(1.5);
+  z-index: 1;
+}
+
+.character p {
+  display: inline-block;
+  position: relative;
+
+  width: 100%;
+  height: 18px;
+  margin: 0;
+  padding: 0;
+  border: transparent solid;
+  border-width: 0 2px;
+
+  font-size: 13px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 1.3;
+  color: white;
+  background: var(--name-bg);
+  background-clip: padding-box;
+}
+
+/* Used ::before and ::after pseudo-element to add some decorations */
+.character p::before,
+.character p::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  height: 100%;
+  width: 2px;
+  background-color: var(--name-bg);
+}
+.character p::before {
+  left: -4px;
+}
+.character p::after {
+  right: -4px;
+}
+
+/* Background collor on hover*/
+.character:hover .characterIcon,
+.character:focus-within .characterIcon {
+  background-color: hsl(240 11% 25% / 1);
+  transition: background-color 300ms ease 240ms;
+}
+
+/* Animated borderd effect */
+/* .iconContainer {
+  --speed: 0.08s;
+  --delay: 0.05s;
+  --rel-delay: 0.1s;
+  position: relative;
+}
+
+.iconContainer:before {
+  content: "";
+  position: absolute;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  top: calc(2px / -1);
+  left: calc(2px / -1);
+  background: linear-gradient(
+      to right,
+      var(--border-color) 0%,
+      var(--border-color) 100%
+    ),
+    linear-gradient(to top, var(--border-color) 50%, transparent 50%),
+    linear-gradient(to top, var(--border-color) 50%, transparent 50%),
+    linear-gradient(to right, var(--border-color) 0%, var(--border-color) 100%),
+    linear-gradient(to left, var(--border-color) 0%, var(--border-color) 100%);
+  background-size: 100% 2px, 2px 200%, 2px 200%, 0% 2px, 0% 2px;
+  background-position: 50% 100%, 0% 0%, 100% 0%, 100% 0%, 0% 0%;
+  background-repeat: no-repeat, no-repeat;
+  transition: transform var(--speed) ease-in-out,
+    background-position var(--speed) ease-in-out,
+    background-size var(--speed) ease-in-out;
+  transform: scaleX(0) rotate(0deg);
+  transition-delay: calc(var(--rel-delay) * 3), calc(var(--rel-delay) * 2),
+    var(--rel-delay);
+}
+
+.character:hover .iconContainer:before,
+.character:focus-within .iconContainer:before {
+  background-size: 200% 2px, 2px 400%, 2px 400%, 55% 2px, 55% 2px;
+  background-position: 50% 100%, 0% 100%, 100% 100%, 100% 0%, 0% 0%;
+  transform: scaleX(1) rotate(0deg);
+  transition-delay: calc(var(--delay) + var(--rel-delay)),
+    calc(var(--delay) + var(--rel-delay) * 2),
+    calc(var(--delay) + var(--rel-delay) * 3);
+} */
+
+/* Colored nameplate */
+.character[data-rank="S"] .name,
+.character[data-rank="S"] .name::before,
+.character[data-rank="S"] .name::after {
+  background-color: var(--Srank-color);
+}
+
+.character[data-rank="A"] .name,
+.character[data-rank="A"] .name::before,
+.character[data-rank="A"] .name::after {
+  background-color: var(--Arank-color);
+}
+
+.character[data-rank="B"] .name,
+.character[data-rank="B"] .name::before,
+.character[data-rank="B"] .name::after {
+  background-color: var(--Brank-color);
+}
+
+/* Double image effect */
+.awakenIcon {
+  position: absolute;
+  background-color: hsl(240 11% 25% / 1);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 200ms linear 50ms, background-color 200ms ease 20ms;
+}
+
+.character:hover .prova,
+.character:focus-within .prova {
+  opacity: 0;
+  transition: opacity 200ms linear 50ms, background-color 200ms ease 20ms;
+}
+
+.character:hover .awakenIcon,
+.character:focus-within .awakenIcon {
+  opacity: 1;
+  transition: opacity 200ms linear 50ms, background-color 200ms ease 20ms;
+}
+
+.character .prova {
+  transition: opacity 200ms linear 50ms, background-color 200ms ease 20ms;
+}
+
+/* Border Color Switcher */
+.character[data-rank="S"] {
+  --border-color: var(--Srank-color);
+}
+.character[data-rank="A"] {
+  --border-color: var(--Arank-color);
+}
+.character[data-rank="B"] {
+  --border-color: var(--Brank-color);
+}
+
+/* Alternate character Rank */
+/* Just a quick demo CSS need to be optimized */
+.rankContainer {
+  --rankBox-width: 20px;
+
+  width: var(--rankBox-width);
+  aspect-ratio: 1;
+  border-radius: 50%;
+
+  position: absolute;
+  left: calc(var(--rankBox-width) / -2);
+  top: calc(var(--rankBox-width) / -2);
+  z-index: 1;
+  display: grid;
+  place-content: center;
+
+  line-height: 1;
+  font-weight: 600;
+}
+.character[data-rank="S"] .rankContainer {
+  color: var(--Srank-color-l);
+  background-color: var(--Srank-color);
+}
+.character[data-rank="A"] .rankContainer {
+  color: var(--Arank-color-l);
+  background-color: var(--Arank-color);
+}
+.character[data-rank="B"] .rankContainer {
+  color: var(--Brank-color-l);
+  background-color: var(--Brank-color);
+}
+.rankContainer img {
+  /* display: none; */
+}
+/* END */
+
+/* SVG */
+/* B-Rank */
+svg {
+  height: 12px;
+  fill-rule: evenodd;
+  clip-rule: evenodd;
+  stroke-linejoin: round;
+  stroke-miterlimit: 2;
+}
+
+.character[data-rank="B"] svg {
+  fill: var(--Brank-color-l);
+}
+
+.character[data-rank="A"] svg {
+  fill: var(--Arank-color-l);
+}
+
+.character[data-rank="S"] svg {
+  fill: var(--Srank-color-l);
+}
+
+/* Reduced opacity on non hovered list item */
+/* .characterList:focus-within > li:not(:focus-within),
+.characterList:hover > li:not(:hover) {
+  opacity: 0.5;
+  transition: opacity 500ms ease 100ms;
+}
+ */
